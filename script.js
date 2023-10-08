@@ -7,8 +7,11 @@ const api = 'https://api.adviceslip.com/advice'
  async function getMsg() {
     title.innerHTML = ''
     msg.innerHTML = 'Loading...'
-    const response = await fetch('https://api.adviceslip.com/advice');
+    const response = await fetch(api);
     const data = await response.json();
+    if (!data){
+      console.log('error na api')
+    }
       updateUser(data.slip)
    
   }
